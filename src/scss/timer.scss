@@ -1,0 +1,235 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto/Roboto-Light.ttf');
+}
+  @font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto/Roboto-Bold.ttf');
+    font-weight: bold;
+  }
+  *{
+    box-sizing: border-box;
+  }
+ 
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-family:'Roboto', sans-serif;
+    font-size: 4vw;
+}
+body::before{
+    content: "";
+    height: 100%;
+    width: 100vw;
+    background-image: url('../img/bg-pgo.jpeg');
+    position: absolute;
+    background-size:cover;
+    z-index: -1;
+    filter: blur(5px);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    >img{
+        width: 40%;
+    }
+    font-size: 2.5rem;
+}
+.drawer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    font-size: 1.2rem;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    transition: height 1s ease;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    &.hidden{
+        height: 0;
+    }
+    .content{
+        margin:0 auto;
+        width: 80%;
+        
+        > *{
+            margin: 15vh 0;
+        }
+    }
+    
+}
+.no-scroll {
+    height: 100%;
+    overflow: hidden;
+}
+.specialTitle{
+    margin: 0;
+    font-weight:100;
+    font-size: 10vw;
+    height: 0.9em;
+    letter-spacing: 0.2rem;
+    overflow: hidden;
+}
+.desc{
+    margin-top:10%;
+}
+.contentBackground{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: rgba($color: #000, $alpha: 0.3);
+    padding: 0 0 5px 0 ;
+    text-align: center;
+    padding: 5px;
+}
+.timer{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    flex: 1;
+    flex-direction: column;
+   >*{
+    display: flex;
+    flex-direction: column;
+     >*{
+         margin: 10px 0;
+     }
+    }
+
+    .circularProgress{
+        width: 165px!important;
+        height: 165px!important;
+        border: 3px inset currentColor;
+        border-radius: 80%;
+        svg{
+            background-color: rgba(0, 0, 0, 0.61);
+            border-radius: 80%;
+            circle{
+            fill: black;
+            stroke-width: 3px;
+        }
+      } 
+    }
+    .number{
+        font-weight: bolder;
+        font-size: 1.5rem;
+    }
+    .label{
+        font-size: 1.5rem;
+    }
+
+}
+@media only screen and (min-width: 732px) {
+    .timer-desc{
+        flex: 1 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: bottom;
+    }
+    .timer{
+        >*{
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+        }
+    }
+    .timer .circularProgress{
+        width: 200px!important;
+        height: 200px!important;
+    }
+    .drawer p{
+        font-size: 2.0rem;
+    }
+     body .header .drawer-button{
+        font-size: 1.5em;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    body{
+        
+        font-size: 4vw;
+        .timer-desc{
+            justify-content: space-evenly;
+        }
+        .header{
+            padding: 20px;
+        }
+        .timer{
+            flex-direction: row;
+            flex:0;
+            >*{
+                justify-content: space-around;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1440px) {
+    body{
+
+        &::before{
+            filter: none;
+            
+            background-position: center center;
+        }
+        .drawer{
+            svg{
+                font-size: 5vw!important;
+            }
+            .content{
+                width: 1440px;
+            }
+        }
+        .timer .circularProgress{
+            width: 350px!important;
+            height: 350px!important;
+            border: 10px inset currentColor;
+        }
+        .timer{
+            .label{
+            font-size: 2.5rem;
+        }
+        .number{
+            font-size: 3.0rem;
+        }
+        }
+        .header > img {
+            width: 15%;
+        }
+        .timer-desc{
+            background-color: rgba(0, 0, 0, 0.61);
+            padding: 30px;
+            width: 1440px;
+            border-radius: 15px;
+            
+            max-height: 990px;
+            margin:auto;
+            .specialTitle{
+                font-size: 5vw;
+            }
+            p{
+                font-size: 2.5rem;
+            }
+        }
+        
+    }
+}
+
